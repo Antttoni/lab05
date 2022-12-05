@@ -37,7 +37,7 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/lab05:${TAG}
+            ghcr.io/${{ github.repository_owner }}/lab05:0.0.5
             ghcr.io/${{ github.repository_owner }}/lab05:latest
           secrets: |
             "ASPNETCORE_ENVIRONMENT=Release"
