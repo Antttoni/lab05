@@ -46,6 +46,8 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/antttoni/lab05:0.0.5
+          username: ${{ secrets.ANTON_DOLGIKH_DOCKER_USER_LAB05 }}
+          password: ${{ secrets.ANTON_DOLGIKH_DOCKER_LAB05 }}
 
 
 
