@@ -37,8 +37,8 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/prod-template-server:${{ github.event.release.tag_name }}
-            ghcr.io/${{ github.repository_owner }}/prod-template-server:latest
+            ghcr.io/${{ github.repository_owner }}/lab05:${{ github.event.release.tag_name }}
+            ghcr.io/${{ github.repository_owner }}/lab05:latest
           secrets: |
             "ASPNETCORE_ENVIRONMENT=Release"
           build-args: |
