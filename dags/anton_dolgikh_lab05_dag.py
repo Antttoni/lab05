@@ -15,7 +15,7 @@ from airflow.operators.python import BranchPythonOperator
 from airflow.utils.trigger_rule import TriggerRule
 
 DEFAULT_ARGS = {"owner": "dolgikh"}
-
+ 
 @dag(
     default_args=DEFAULT_ARGS,
     schedule_interval="0 0 * * *",
