@@ -11,6 +11,8 @@ jobs:
   build:
  
     runs-on: ubuntu-latest
+    permissions:
+      packages: write 
     steps:
       - uses: actions/checkout@v2
 
@@ -46,8 +48,7 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/antttoni/lab05:0.0.5
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.ANTON_DOLGIKH_LAB05 }}
+          github-token: ${{ secrets.ANTON_DOLGIKH_LAB05 }}
 
 
 
