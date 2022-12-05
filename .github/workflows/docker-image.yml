@@ -14,17 +14,16 @@ jobs:
 
     steps:
 
-  - uses: mr-smithers-excellent/docker-build-push@v5
-    name: Build & push Docker image
-    with:
-      image: antttoni/lab05
-      tags: 0.0.6
-      registry: docker.io
-          username: ${{ secrets.ANTON_DOLGIKH_DOCKER_USER_LAB05 }}
-          password: ${{ secrets.ANTON_DOLGIKH_DOCKER_LAB05 }}
+    - name: Check out code to Build
+      uses: actions/checkout@v2
 
-
-
-
-
+        - uses: mr-smithers-excellent/docker-build-push@v5
+          name: Build & push Docker image
+          with:
+	      image: antttoni/lab05
+	      tags: 0.0.6
+	      registry: docker.io
+	      dockerfile: Dockerfile
+	      username: ${{ secrets.ANTON_DOLGIKH_DOCKER_USER_LAB05 }}
+	      password: ${{ secrets.ANTON_DOLGIKH_DOCKER_LAB05 }}
 
