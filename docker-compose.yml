@@ -37,6 +37,7 @@ services:
     volumes:
       - ./dags:/usr/local/airflow/dags
       - ./logs_webserver:/usr/local/airflow/logs
+      - ./airflow_web/airflow.cfg:/usr/local/airflow/airflow.cfg
     ports:
       - "8085:8080"
     entrypoint: airflow webserver
@@ -50,4 +51,5 @@ services:
     volumes:
       - ./dags:/usr/local/airflow/dags
       - ./logs_scheduler:/usr/local/airflow/logs
+      - ./airflow_sched/airflow.cfg:/usr/local/airflow/airflow.cfg
     entrypoint: airflow scheduler
