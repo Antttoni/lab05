@@ -32,14 +32,13 @@ jobs:
           username: "antttoni"
           password: ${{ secrets.ANTON_DOLGIKH_LAB05 }}
           
-      - name: "Build&Deploy template-server"
-        uses: docker/build-push-action@v2
+      - name: Build and push
+        uses: docker/build-push-action@v3
         with:
           push: true
-          tags: |
-            ghcr.io/antttoni/lab05:0.0.5
-            ghcr.io/antttoni/lab05:latest
+          tags: ghcr.io/antttoni/lab05:0.0.5
           secrets: |
-            "ASPNETCORE_ENVIRONMENT=Release"
-          build-args: |
-            build_mode=Release
+            GIT_AUTH_TOKEN=${{ secrets.ANTON_DOLGIKH_LAB05 }}
+
+
+
