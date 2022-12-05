@@ -17,7 +17,8 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          TAG=$(echo $GITHUB_SHA | head -c7)
+#          TAG=$(echo $GITHUB_SHA | head -c7)
+          TAG =0.0.5  
           IMAGE="antttoni/lab05"
           echo ::set-output name=tagged_image::${IMAGE}:${TAG}
           echo ::set-output name=tag::${TAG}
@@ -37,7 +38,7 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/lab05:${{ github.event.release.tag_name }}
+            ghcr.io/${{ github.repository_owner }}/lab05:${TAG}
             ghcr.io/${{ github.repository_owner }}/lab05:latest
           secrets: |
             "ASPNETCORE_ENVIRONMENT=Release"
