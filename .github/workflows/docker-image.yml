@@ -14,11 +14,11 @@ jobs:
 
     steps:
 
-    - name: Check out code to Build
-      uses: actions/checkout@v2
+        - name: Check out code to Build
+          uses: actions/checkout@v2
 
-        - uses: mr-smithers-excellent/docker-build-push@v5
-          name: Build & push Docker image
+        - name: Build & push Docker image
+          uses: mr-smithers-excellent/docker-build-push@v5
           with:
 	      image: antttoni/lab05
 	      tags: 0.0.6
