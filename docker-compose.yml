@@ -6,7 +6,7 @@ services:
     env_file: 
       - .env
     ports:
-      - "5432:5432"
+      - ${POSTGRES_LOCAL_PORT}:5432
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
     healthcheck:
@@ -19,26 +19,28 @@ services:
 
   # удали/закомментируй меня после первого запуска
   airflow-initdb:
-    image: antttoni/lab05:0.0.2
+    image: antttoni/lab05:${TAG}
     depends_on:
         postgres:
             condition: service_healthy
+    env_file: 
+      - .env
     command:
       - -c
-      - airflow users list || ( airflow db init )
+      - airflow users list || (airflow db init )
     entrypoint: /bin/bash
 
   redis:
       image: redis:7.0.0
       restart: always
       ports:
-        - "6379:6379"
+        - ${REDIS_PORT}:6379
       command: redis-server --save 20 1 --loglevel warning
       volumes: 
         - ./data/redis:/var/lib/redis/data
 
   airflow-webserver:
-    image: antttoni/lab05:0.0.2
+    image: antttoni/lab05:${TAG}
     restart: always
     depends_on:
         postgres:
@@ -47,13 +49,13 @@ services:
       - ./dags:/usr/local/airflow/dags
       - ./logs_webserver:/usr/local/airflow/logs
     ports:
-      - "8085:8080"
+      - "${AIRFLOW_LOCAL_PORT}:8080"
     env_file: 
       - .env
     entrypoint: airflow webserver
 
   airflow-scheduler:
-    image: antttoni/lab05:0.0.2
+    image: antttoni/lab05:${TAG}
     restart: always
     depends_on:
         postgres:
