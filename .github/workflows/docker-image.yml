@@ -9,16 +9,15 @@ on:
 jobs:
 
   build:
- 
+
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-
       - name: Prepare
         id: prep
         run: |
-          TAG=0.0.5
+          TAG=0.0.6
           IMAGE="antttoni/lab05"
           echo ::set-output name=tagged_image::${IMAGE}:${TAG}
           echo ::set-output name=tag::${TAG}
@@ -46,7 +45,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/antttoni/lab05:0.0.5
+          tags: ghcr.io/antttoni/lab05:0.0.6
           github-token: ${{ secrets.ANTON_DOLGIKH_LAB05 }}
 
 
