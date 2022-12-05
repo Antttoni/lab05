@@ -38,7 +38,7 @@ jobs:
           push: true
           tags: ghcr.io/antttoni/lab05:0.0.5
           secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.ANTON_DOLGIKH_LAB05 }}
+            GIT_AUTH_TOKEN=${{ secrets.ANTON_DOLGIKH_DOCKER_LAB05 }}
 
 
 
