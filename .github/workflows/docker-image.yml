@@ -40,13 +40,7 @@ jobs:
           password: ${{ secrets.ANTON_DOLGIKH_LAB05 }}
 
 
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: true
-          tags: ghcr.io/antttoni/lab05:0.0.6
-          github-token: ${{ secrets.ANTON_DOLGIKH_LAB05 }}
+
 
 
 
