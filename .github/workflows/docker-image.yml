@@ -11,14 +11,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
- #   steps:
- #   - uses: actions/checkout@v3
- #   - name: Build the Docker image
- #     run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
- # docker/setup-buildx-action@v2 , docker/login-action@v2 , docker/build-push-action@v3
-
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
