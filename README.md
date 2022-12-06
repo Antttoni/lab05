@@ -1,4 +1,5 @@
 Реализуемый функционал (актуальная на момент написания документации версия контейнера antttoni/lab05:0.0.8 )
+
 Обработка метрик по покупкам клиента согласно БТ: https://github.com/newprolab/dataengineer11/blob/main/labs/lab05/lab05-pipeline-personalize.md
 Архитектурная схема решения: https://github.com/newprolab/dataengineer11/tree/main/labs/lab05#readme
 
