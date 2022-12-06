@@ -1,0 +1,12 @@
+{
+"CLICK_HOST": "85.192.34.226",
+"CLICK_PORT": "9090",
+"POSTGRE_HOST": "data.ijklmn.xyz",
+"POSTGRE_PORT": "5432",
+"POSTGRE_DB": "sku_info",
+"POSTGRE_LOGIN": "lab05",
+"POSTGRE_PASS": "zua0ieMahk9Jei",
+"REDIS_HOST": "85.192.34.226",
+"REDIS_PORT": "6379",
+"REDIS_DB": "0"
+}
