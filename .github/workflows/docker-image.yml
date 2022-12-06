@@ -15,13 +15,23 @@ jobs:
       packages: write
 
     steps:
+
+      - name: Autoincrement a new patch version
+        run: |
+          echo "NEW_PATCH_VERSION=$((${{ env.PATCH_VERSION }}+1))" >> $GITHUB_ENV
+      - name: Update patch version
+        uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: 'PATCH_VERSION'
+          value: ${{ env.NEW_PATCH_VERSION }}
+          repository: ${{ github.repository }}
+          token: ${{ secrets.ANTON_DOLGIKH_LAB05 }}
+
       - uses: actions/checkout@v2
       - name: Prepare
         id: prep
         run: |
-          TAG=0.0.6
-          IMAGE="antttoni/lab05"
-          echo ::set-output name=tagged_image::${IMAGE}:${TAG}
+          echo ::set-output name=tagged_image::${ env.LAB05_IMAGE }:${ env.MAJOR_VERSION }${{ env.PATCH_VERSION }}
           echo ::set-output name=tag::${TAG}
       - name: Set up Docker Buildx
         id: buildx
@@ -47,7 +57,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: antttoni/lab05:0.0.6
+          tags: ${ env.LAB05_IMAGE }:${env.MAJOR_VERSION }${{ env.PATCH_VERSION }}
 
 
 
