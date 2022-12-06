@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  LAB05_IMAGE: antttoni/lab05
+  MAJOR_VERSION: 0.0.
+  PATCH_VERSION: 7
+
 jobs:
 
   build-and-push-image:
@@ -19,6 +24,7 @@ jobs:
       - name: Test1
         run:  |
           echo ${{ env.LAB05_IMAGE }}:${{ env.MAJOR_VERSION }}${{ env.PATCH_VERSION }}
+          echo $LAB05_IMAGE:$MAJOR_VERSION$PATCH_VERSION
 
       - name: Autoincrement a new patch version
         run: |
@@ -28,6 +34,7 @@ jobs:
         run:  |
           echo $NEW_PATCH_VERSION
           echo ${{  env.LAB05_IMAGE }}:${{ env.MAJOR_VERSION }}${{ env.PATCH_VERSION }}
+          echo ${{  secrets.LAB05_IMAGE }}:${{ secrets.MAJOR_VERSION }}${{ secrets.PATCH_VERSION }}
 
       - name: Set up Docker Buildx
         id: buildx
