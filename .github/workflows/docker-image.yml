@@ -15,28 +15,19 @@ jobs:
       packages: write
 
     steps:
-
-        - name: Test1
-    	  run:  |
-		echo ${{ env.LAB05_IMAGE }}:${{ env.MAJOR_VERSION }}${{ env.PATCH_VERSION }}
-
+      - uses: actions/checkout@v2
+      - name: Test1
+      run:  |
+        echo ${{ env.LAB05_IMAGE }}:${{ env.MAJOR_VERSION }}${{ env.PATCH_VERSION }}
 
       - name: Autoincrement a new patch version
         run: |
           echo "NEW_PATCH_VERSION=$((${{ env.PATCH_VERSION }}+1))" >> $GITHUB_ENV
 
-    	- name: Test2
-    	  run:  |
-		echo $NEW_PATCH_VERSION
-		echo ${{ env.LAB05_IMAGE }}:${{ env.MAJOR_VERSION }}${{ env.PATCH_VERSION }}
-
-      - name: Update patch version
-        uses: hmanzur/actions-set-secret@v2.0.0
-        with:
-          name: 'PATCH_VERSION'
-          value: ${{ env.NEW_PATCH_VERSION }}
-          repository: ${{ github.repository }}
-          token: ${{ secrets.ANTON_DOLGIKH_LAB05 }}
+        - name: Test2
+          run:  |
+        echo $NEW_PATCH_VERSION
+        echo ${{ env.LAB05_IMAGE }}:${{ env.MAJOR_VERSION }}${{ env.PATCH_VERSION }}
 
       - name: Set up Docker Buildx
         id: buildx
