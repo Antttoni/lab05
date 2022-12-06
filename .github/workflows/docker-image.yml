@@ -16,7 +16,7 @@ jobs:
 
     steps:
 
-    	- name: Test1
+        - name: Test1
     	  run:  |
 		echo ${{ env.LAB05_IMAGE }}:${{ env.MAJOR_VERSION }}${{ env.PATCH_VERSION }}
 
